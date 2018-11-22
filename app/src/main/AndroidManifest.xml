@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chiendeptrai.vuvanchien.nhanhnhuchop">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".View.MainActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.ManHinhBatDau"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo" />
+        <activity
+            android:name=".View.HuongDanChoi"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo" />
+        <activity
+            android:name=".View.LoandVongChoi"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo" />
+        <activity
+            android:name=".View.Vong1"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo">
+
+        </activity>
+        <activity android:name=".View.VuotQuaVong1"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo"/>
+        <activity android:name=".View.HuongDanchoiVong2"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo"/>
+        <activity android:name=".View.Vong2"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo">
+
+        </activity>
+    </application>
+
+</manifest>
