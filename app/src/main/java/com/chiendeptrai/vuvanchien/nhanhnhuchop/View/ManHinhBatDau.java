@@ -16,7 +16,6 @@ import com.chiendeptrai.vuvanchien.nhanhnhuchop.R;
 public class ManHinhBatDau extends AppCompatActivity {
 Button btnBatDau;
     private Button btnthoat;
-MediaPlayer nhacnen = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +23,6 @@ MediaPlayer nhacnen = new MediaPlayer();
         setContentView(R.layout.activity_man_hinh_bat_dau);
         btnBatDau = findViewById(R.id.btnbatdau);
         btnthoat = findViewById(R.id.btnthoat);
-        nhacnen = MediaPlayer.create(this, R.raw.backgroutmp3);
-        nhacnen.start();
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
         btnBatDau.setTypeface(typeface);
         btnthoat.setTypeface(typeface);

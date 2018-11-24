@@ -83,7 +83,7 @@ public class Vong1 extends AppCompatActivity {
     List<FastQuestion> list;
     int qid = 0;
     int timeValue = 0;
-    int coinValue = 10;
+    int coinValue = 0;
     CountDownTimer countDownTimer;
     Typeface tb, sb;
     MediaPlayer nhacnen = new MediaPlayer();
@@ -99,11 +99,14 @@ public class Vong1 extends AppCompatActivity {
                 ReturnMenu();
             }
         });
+        nhacnen = MediaPlayer.create(this, R.raw.backgroutmp3);
+        nhacnen.start();
+        nhacnen.setLooping(true);
         imgVolume.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                    nhacnen.stop();
+                    nhacnen.pause();
                 }else {
                     try {
                         nhacnen.prepare();
@@ -221,7 +224,7 @@ public class Vong1 extends AppCompatActivity {
 // currentQuestion sẽ giữ tùy chọn que, 4 và ans cho id cụ thể
         currentQuestion = list.get(qid);
         //countDownTimer
-        countDownTimer = new CountDownTimer(10000, 1000) {
+        countDownTimer = new CountDownTimer(120000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 tvThoiGian.setText(String.valueOf(timeValue) + "\tgiây");
@@ -306,7 +309,7 @@ public class Vong1 extends AppCompatActivity {
         tvdiemso.setText(String.valueOf(coinValue));
 
 // tăng điểm
-        coinValue++;
+        coinValue+=50;
 
     }
 
@@ -433,7 +436,6 @@ public class Vong1 extends AppCompatActivity {
 
               // Hiển thị hộp thoại ans là chính xác
                 correctDialog();
-                tvCautraLoi.setText(currentQuestion.getAnswer());
             }
             // Nếu người dùng vượt quá giới hạn que chỉ cần điều hướng anh ta đến hoạt động QuaVong
             else {
@@ -481,6 +483,7 @@ public class Vong1 extends AppCompatActivity {
             }
         } else {
             gameLostPlayAgain();
+
             timeValue = 0;
         }
     }
@@ -519,4 +522,15 @@ public class Vong1 extends AppCompatActivity {
             timeValue = 0;
         }
     }
+
+//    public void Check(View view) {
+//        if (nhacnen.isPlaying()){
+//                   nhacnen.pause();
+//                    imgVolume.setImageResource(R.drawable.ic_action_volumoff);
+//
+//                }else {
+//                    nhacnen.start();
+//                    imgVolume.setImageResource(R.drawable.ic_action_volume);
+//                }
+//    }
 }
