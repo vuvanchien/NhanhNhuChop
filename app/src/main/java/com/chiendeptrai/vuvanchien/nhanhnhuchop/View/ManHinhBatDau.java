@@ -3,6 +3,7 @@ package com.chiendeptrai.vuvanchien.nhanhnhuchop.View;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ import com.chiendeptrai.vuvanchien.nhanhnhuchop.R;
 public class ManHinhBatDau extends AppCompatActivity {
 Button btnBatDau;
     private Button btnthoat;
-
+MediaPlayer nhacnen = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,8 @@ Button btnBatDau;
         setContentView(R.layout.activity_man_hinh_bat_dau);
         btnBatDau = findViewById(R.id.btnbatdau);
         btnthoat = findViewById(R.id.btnthoat);
-
+        nhacnen = MediaPlayer.create(this, R.raw.backgroutmp3);
+        nhacnen.start();
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
         btnBatDau.setTypeface(typeface);
         btnthoat.setTypeface(typeface);

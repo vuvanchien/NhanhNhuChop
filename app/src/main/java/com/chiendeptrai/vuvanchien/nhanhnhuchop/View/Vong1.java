@@ -2,17 +2,30 @@ package com.chiendeptrai.vuvanchien.nhanhnhuchop.View;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
+import android.os.CountDownTimer;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chiendeptrai.vuvanchien.nhanhnhuchop.Helper.FastQuestionHelper;
+import com.chiendeptrai.vuvanchien.nhanhnhuchop.Mode.FastQuestion;
 import com.chiendeptrai.vuvanchien.nhanhnhuchop.R;
+
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 public class Vong1 extends AppCompatActivity {
     private FrameLayout Framediem;
@@ -30,7 +43,7 @@ public class Vong1 extends AppCompatActivity {
     private TextView tvDoiCauhoi;
     private FrameLayout btnDoiCauhoi;
     private ImageView imgHome;
-    private ImageView imgVolume;
+    private CheckBox imgVolume;
     private TextView tvCauhoi;
     private Button btnluachon;
     private FrameLayout FrameLayoutDapAnA;
@@ -65,7 +78,15 @@ public class Vong1 extends AppCompatActivity {
     private TextView tvThoiGian;
     private TextView tvXem100;
     private TextView tvXem50;
-
+    FastQuestion currentQuestion;
+    FastQuestionHelper fastQuestionHelper;
+    List<FastQuestion> list;
+    int qid = 0;
+    int timeValue = 0;
+    int coinValue = 10;
+    CountDownTimer countDownTimer;
+    Typeface tb, sb;
+    MediaPlayer nhacnen = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +99,25 @@ public class Vong1 extends AppCompatActivity {
                 ReturnMenu();
             }
         });
+        imgVolume.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    nhacnen.stop();
+                }else {
+                    try {
+                        nhacnen.prepare();
+                        nhacnen.start();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
 
     }
 
+    // Khởi tạo biến
     private void khaibao() {
         Framediem = findViewById(R.id.Framediem);
         tvdiem = findViewById(R.id.tvdiem);
@@ -99,7 +136,6 @@ public class Vong1 extends AppCompatActivity {
         imgHome = findViewById(R.id.imgHome);
         imgVolume = findViewById(R.id.imgVolume);
         tvCauhoi = findViewById(R.id.tvCauhoi);
-        btnluachon = findViewById(R.id.btnluachon);
         FrameLayoutDapAnA = findViewById(R.id.FrameLayout_DapAnA);
         tvDapAnA = findViewById(R.id.tvDapAn_A);
         FrameLayoutDapAnB = findViewById(R.id.FrameLayout_DapAnB);
@@ -128,12 +164,12 @@ public class Vong1 extends AppCompatActivity {
         tvo2 = findViewById(R.id.tvo2);
         score1 = findViewById(R.id.score1);
         tvo1 = findViewById(R.id.tvo1);
-        tvCautraLoi = findViewById(R.id.tvCauTraloi);
         tvThoiGian = findViewById(R.id.tvthoigian);
         tvXem50 = findViewById(R.id.Xem50s);
         tvXem100 = findViewById(R.id.tvxem100);
 
 
+// Thiết lập kiểu chữ cho textview và nút
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
         tvCauhoi.setTypeface(typeface);
         tvDapAnA.setTypeface(typeface);
@@ -156,7 +192,6 @@ public class Vong1 extends AppCompatActivity {
         tvThem30s.setTypeface(typeface);
         tvTroGiup.setTypeface(typeface);
         tvThoiGian.setTypeface(typeface);
-        tvCautraLoi.setTypeface(typeface);
         tvXem100.setTypeface(typeface);
         tvXem50.setTypeface(typeface);
         tvdiem100.setTypeface(typeface);
@@ -165,7 +200,60 @@ public class Vong1 extends AppCompatActivity {
         tv50d.setTypeface(typeface);
 
 
+        // Khai báo cơ sở dũ liêu
+        fastQuestionHelper = new FastQuestionHelper(this);
+        fastQuestionHelper.getWritableDatabase();
+
+// kiểm tra nếu ques, tùy chọn đã được thêm vào trong bảng hay không
+// Nếu  không được thêm vào thì getAllOfTheQuestions () sẽ trả về một danh sách có kích thước bằng không
+        if (fastQuestionHelper.getAllofTheQuestion().size() == 0) {
+
+// Nếu không được thêm thì thêm ques, tùy chọn trong bảng
+            fastQuestionHelper.allQuestion();
+        }
+
+// trả về  danh sách kiểu dữ liệu FastQuestion
+        list = fastQuestionHelper.getAllofTheQuestion();
+
+//  Xáo trộn các phần tử của danh sách để chúng ta sẽ nhận được câu hỏi ngẫu nhiên
+        Collections.shuffle(list);
+
+// currentQuestion sẽ giữ tùy chọn que, 4 và ans cho id cụ thể
+        currentQuestion = list.get(qid);
+        //countDownTimer
+        countDownTimer = new CountDownTimer(10000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                tvThoiGian.setText(String.valueOf(timeValue) + "\tgiây");
+
+// Với mỗi lần giảm dần thời gian bằng 1 giây
+                timeValue -= -1;
+
+//  hết thời gian để onFinished sẽ gọi sau lần lặp này
+                if (timeValue == -1) {
+
+// người dùng đã hết thời gian setText làm thời gian
+                    tvThoiGian.setText("Hết giờ");
+                    correctDialog();
+
+// Vì người dùng hết thời gian nên sẽ không thể nhấp vào bất kỳ nút nào
+                    disableButton();
+                }
+            }
+
+            // người dùng đã hết thời gian
+            @Override
+            public void onFinish() {
+                timeUp();
+            }
+        }.start();
+
+// Phương thức này sẽ đặt que và bốn tùy chọn
+        updateQueAndOptions();
+
+
     }
+
 
     private void ReturnMenu() {
         final Dialog dialog = new Dialog(Vong1.this);
@@ -197,5 +285,238 @@ public class Vong1 extends AppCompatActivity {
         });
 
 
+    }
+
+    public void updateQueAndOptions() {
+
+        // Phương thức này sẽ setText cho hàng đợi và các tùy chọn
+        tvCauhoi.setText(currentQuestion.getQuestion());
+        tvDapAnA.setText(currentQuestion.getOpta());
+        tvDapAnB.setText(currentQuestion.getOptb());
+        tvDapAnC.setText(currentQuestion.getOptc());
+        tvDapAnD.setText(currentQuestion.getOptd());
+
+
+
+// Bây giờ, vì người dùng đã sửa lỗi chính xác, hãy đặt lại bộ hẹn giờ cho một hàng đợi khác bằng cách hủy và bắt đầu
+        countDownTimer.cancel();
+        countDownTimer.start();
+
+        // đặt giá trị điểm
+        tvdiemso.setText(String.valueOf(coinValue));
+
+// tăng điểm
+        coinValue++;
+
+    }
+
+    // Phương thức này được gọi khi hết thời gian
+    public void timeUp() {
+        tvCauhoi.setText("Hết giờ");
+        finish();
+    }
+
+    // Nếu người dùng nhấn nút home và vào game từ bộ nhớ thì
+    // phương pháp sẽ tiếp tục hẹn giờ từ lần trước nó còn lại
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        countDownTimer.start();
+    }
+
+    // Khi hoạt động bị hủy thì thao tác này sẽ hủy hẹn giờ
+    @Override
+    protected void onStop() {
+        super.onStop();
+        countDownTimer.cancel();
+    }
+
+
+    // Điều này sẽ tạm dừng thời gian
+    @Override
+    protected void onPause() {
+        super.onPause();
+        countDownTimer.cancel();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HuongDanChoi.class);
+        startActivity(intent);
+        finish();
+    }
+
+    // Phương thức này sẽ vô hiệu hóa tất cả các nút tùy chọn
+    public void disableButton() {
+        tvDapAnA.setEnabled(false);
+        tvDapAnB.setEnabled(false);
+        tvDapAnC.setEnabled(false);
+        tvDapAnD.setEnabled(false);
+    }
+
+    // Phương thức này sẽ cho phép các nút tùy chọn
+    public void enableButton() {
+        tvDapAnA.setEnabled(true);
+        tvDapAnB.setEnabled(true);
+        tvDapAnC.setEnabled(true);
+        tvDapAnD.setEnabled(true);
+    }
+
+    public void correctDialog() {
+        final Dialog dialogCorrect = new Dialog(Vong1.this);
+        dialogCorrect.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (dialogCorrect.getWindow() != null) {
+            ColorDrawable colorDrawable = new ColorDrawable(Color.TRANSPARENT);
+            dialogCorrect.getWindow().setBackgroundDrawable(colorDrawable);
+        }
+        dialogCorrect.setContentView(R.layout.dialog_correct);
+        dialogCorrect.setCancelable(false);
+        dialogCorrect.show();
+
+
+// Vì hộp thoại được hiển thị cho người dùng, chỉ cần tạm dừng bộ hẹn giờ ở chế độ nền
+        onPause();
+
+
+        TextView correctText = dialogCorrect.findViewById(R.id.correctText);
+        Button buttonNext = dialogCorrect.findViewById(R.id.dialogNext);
+        // Thiết lập kiểu chữ cho textview và nút
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+        correctText.setTypeface(typeface);
+        buttonNext.setTypeface(typeface);
+
+        //OnCLick listener
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+// loại bỏ hộp thoại
+                dialogCorrect.dismiss();
+
+// nó sẽ tăng số câu hỏi
+                qid++;
+
+// lấy tùy chọn que và 4 và lưu trữ trong currentQuestion
+                currentQuestion = list.get(qid);
+                updateQueAndOptions();
+
+// thiết lập hàng đợi mới và 4 tùy chọn
+                resetColor();
+                //Enable button - remember we had disable them when user ans was correct in there particular button methods
+                enableButton();
+            }
+        });
+    }
+
+    // thiet lap mau
+    public void resetColor() {
+        FrameLayoutDapAnA.setBackgroundResource(R.drawable.fom_start);
+        FrameLayoutDapAnB.setBackgroundResource(R.drawable.fom_start);
+        FrameLayoutDapAnC.setBackgroundResource(R.drawable.fom_start);
+        FrameLayoutDapAnD.setBackgroundResource(R.drawable.fom_start);
+    }
+    //Onclick listener
+    public void FrameLayout_DapAnA(View view) {
+
+// so sánh tùy chọn với ans nếu có thì làm cho nút màu xanh lá cây
+        if (currentQuestion.getOpta().equals(currentQuestion.getAnswer())) {
+            FrameLayoutDapAnA.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorOranger));
+
+// Kiểm tra xem người dùng có vượt quá giới hạn que không
+            if (qid < list.size() - 1) {
+
+
+// Bây giờ vô hiệu hóa tất cả các nút tùy chọn vì ans của người dùng là chính xác
+                // người dùng sẽ không thể nhấn nút tùy chọn khác sau khi nhấn một nút
+                disableButton();
+
+              // Hiển thị hộp thoại ans là chính xác
+                correctDialog();
+                tvCautraLoi.setText(currentQuestion.getAnswer());
+            }
+            // Nếu người dùng vượt quá giới hạn que chỉ cần điều hướng anh ta đến hoạt động QuaVong
+            else {
+
+                gameWon();
+                timeValue = 0;
+
+            }
+        }
+
+// Ans người dùng sai rồi chỉ điều hướng anh ấy đến hoạt động PlayAgain
+        else {
+
+            gameLostPlayAgain();
+
+        }
+    }
+
+
+    // Phương thức này được gọi khi người dùng ans sai
+    // phương pháp này sẽ điều hướng người dùng đến hoạt động PlayAgain
+    public void gameLostPlayAgain() {
+        Intent intent = new Intent(this, PlayAgain.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    // Phương thức này sẽ điều hướng từ hoạt động hiện tại sang Qua vong
+    public void gameWon() {
+        Intent intent = new Intent(this, QuaVong.class);
+        startActivity(intent);
+        finish();
+    }
+    //Onclick listener
+    public void FrameLayout_DapAnB(View view) {
+        FrameLayoutDapAnB.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorOranger));
+
+        if (currentQuestion.getOptb().equals(currentQuestion.getAnswer())) {
+            if (qid < list.size() - 1) {
+                disableButton();
+                correctDialog();
+            } else {
+                gameWon();
+            }
+        } else {
+            gameLostPlayAgain();
+            timeValue = 0;
+        }
+    }
+    //Onclick listener
+    public void FrameLayout_DapAnC(View view) {
+        FrameLayoutDapAnC.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorOranger));
+
+        if (currentQuestion.getOptc().equals(currentQuestion.getAnswer())) {
+            if (qid < list.size() - 1) {
+                disableButton();
+                correctDialog();
+            } else {
+                gameWon();
+            }
+        } else {
+
+            gameLostPlayAgain();
+            timeValue = 0;
+        }
+    }
+    //Onclick listener
+    public void FrameLayout_DapAnD(View view) {
+        FrameLayoutDapAnD.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorOranger));
+
+        if (currentQuestion.getOptd().equals(currentQuestion.getAnswer())) {
+            if (qid < list.size() - 1) {
+                disableButton();
+                correctDialog();
+            } else {
+                gameWon();
+
+            }
+        } else {
+
+            gameLostPlayAgain();
+            timeValue = 0;
+        }
     }
 }

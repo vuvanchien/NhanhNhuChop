@@ -12,7 +12,7 @@
         <activity
             android:name=".View.MainActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppThemeNo" >
+            android:theme="@style/AppThemeNo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,20 +34,25 @@
         <activity
             android:name=".View.Vong1"
             android:screenOrientation="landscape"
-            android:theme="@style/AppThemeNo">
-
-        </activity>
-        <activity android:name=".View.VuotQuaVong1"
+            android:theme="@style/AppThemeNo" />
+        <activity
+            android:name=".View.VuotQuaVong1"
             android:screenOrientation="landscape"
-            android:theme="@style/AppThemeNo"/>
-        <activity android:name=".View.HuongDanchoiVong2"
+            android:theme="@style/AppThemeNo" />
+        <activity
+            android:name=".View.HuongDanchoiVong2"
             android:screenOrientation="landscape"
-            android:theme="@style/AppThemeNo"/>
-        <activity android:name=".View.Vong2"
+            android:theme="@style/AppThemeNo" />
+        <activity
+            android:name=".View.Vong2"
             android:screenOrientation="landscape"
-            android:theme="@style/AppThemeNo">
-
-        </activity>
+            android:theme="@style/AppThemeNo" />
+        <activity android:name=".View.QuaVong"
+            android:theme="@style/AppThemeNo"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".View.PlayAgain"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo"></activity>
     </application>
 
 </manifest>

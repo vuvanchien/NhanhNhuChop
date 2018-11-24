@@ -14,11 +14,11 @@
 </ImageView>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="300dp"
         android:layout_marginBottom="62dp"
+        android:gravity="center_horizontal"
         android:text="Vòng 1"
         android:id="@+id/tvvong"
         android:textColor="@color/colorWhite"

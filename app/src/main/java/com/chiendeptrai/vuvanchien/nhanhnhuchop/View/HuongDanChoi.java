@@ -29,13 +29,8 @@ private Button btnChoingay1;
         btnChoingay1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Timer timer = new Timer();
-                timer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        startActivity(new Intent(HuongDanChoi.this, LoandVongChoi.class));
-                    }
-                },500);
+                        startActivity(new Intent(HuongDanChoi.this, Vong1.class));
+
             }
         });
 
