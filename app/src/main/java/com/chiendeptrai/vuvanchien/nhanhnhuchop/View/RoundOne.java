@@ -276,7 +276,8 @@ private void onClicktrogiup1(){
 //                 //   int b = Integer.parseInt(tg);
 //                    a-=100;
 //                //    b-=30;
-                    coinValue-=100;
+                    String a = String.valueOf(coinValue-=150);
+                    tvdiemso.setText(a);
                     timeValue-=30;
                 }
             }
@@ -292,6 +293,8 @@ private void onClicktrogiup2(){
                         list = questionHelper.getAllofTheQuestion();
 
                         Collections.shuffle(list);
+                        String a = String.valueOf(coinValue-=100);
+                        tvdiemso.setText(a);
                         coinValue-=100;
 
                     }
@@ -470,8 +473,9 @@ private void onClicktrogiup2(){
     public void FrameLayout_DapAnA(View view) {
 
 // so sánh tùy chọn với ans nếu có thì làm cho nút màu xanh lá cây
+        FrameLayoutDapAnA.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorOranger));
         if (currentQuestion.getOpta().equals(currentQuestion.getAnswer())) {
-            FrameLayoutDapAnA.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorOranger));
+
 
 // Kiểm tra xem người dùng có vượt quá giới hạn que không
             if (qid < list.size() - 1) {
