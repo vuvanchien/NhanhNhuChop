@@ -3,15 +3,15 @@
     android:oneshot="true">
 <item
     android:duration="100"
-    android:drawable="@drawable/anim1"
+    android:drawable="@drawable/anim4"
     />
-    <item
-        android:duration="100"
-        android:drawable="@drawable/anim2"/>
     <item
         android:duration="100"
         android:drawable="@drawable/anim3"/>
     <item
         android:duration="100"
-        android:drawable="@drawable/anim4"/>
+        android:drawable="@drawable/anim2"/>
+    <item
+        android:duration="100"
+        android:drawable="@drawable/anim1"/>
 </animation-list>

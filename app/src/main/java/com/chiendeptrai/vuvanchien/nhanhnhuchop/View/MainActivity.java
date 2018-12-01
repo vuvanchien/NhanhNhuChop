@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         time.schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(MainActivity.this, ManHinhBatDau.class));
+                startActivity(new Intent(MainActivity.this, Startscreen.class));
             }
         },2000);
 

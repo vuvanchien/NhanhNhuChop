@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="500dp"
+    android:layout_gravity="center"
     android:layout_height="300dp"
-    android:background="@drawable/fom_start"
+    android:background="@drawable/bacgrouddialog"
     android:gravity="center">
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
     </LinearLayout>
     <Button
         android:id="@+id/dialogNext"
-        android:layout_width="300dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:text="Câu tiếp theo"
