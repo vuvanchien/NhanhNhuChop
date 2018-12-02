@@ -31,7 +31,7 @@ public class TimeUp extends AppCompatActivity {
         btnTimeUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TimeUp.this, GuideOne.class));
+                startActivity(new Intent(TimeUp.this, Startscreen.class));
                 finish();
             }
         });

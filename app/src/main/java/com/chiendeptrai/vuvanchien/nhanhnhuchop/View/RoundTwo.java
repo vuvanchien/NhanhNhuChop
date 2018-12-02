@@ -67,18 +67,23 @@ public class RoundTwo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_round_two);
         intit();
-        onClicktrogiup2();
-        bacgroudmuis = MediaPlayer.create(this, R.raw.bensoundinspire);
-        bacgroudmuis.start();
-        bacgroudmuis.setLooping(true);
-        imgVolume2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//        bacgroudmuis = MediaPlayer.create(this, R.raw.bensoundinspire);
+//        bacgroudmuis.start();
+//        bacgroudmuis.setLooping(true);
+//        imgVolume2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked){
+//                    bacgroudmuis.pause();
+//                }else {
+//                    bacgroudmuis.start();
+//                }
+//            }
+//        });
+        imgHome2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    bacgroudmuis.pause();
-                }else {
-                    bacgroudmuis.start();
-                }
+            public void onClick(View v) {
+                ReturnMenu();
             }
         });
     }
@@ -123,6 +128,33 @@ public class RoundTwo extends AppCompatActivity {
         tvDapAnC2.setTypeface(typeface);
         tvDapAnD2.setTypeface(typeface);
         Xem100s2.setTypeface(typeface);
+
+        frame100diem2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (coinValue < 100){
+                    Dungtrogiup();
+                }else if (timeValue < 60){
+                    ThoiGianchuadu();
+                }
+                else {
+                    list = questionHelper.getAllofTheQuestion();
+
+                    Collections.shuffle(list);
+                    String a = String.valueOf(coinValue-=100);
+                    tvdiemso2.setText(a);
+                    coinValue-=100;
+
+                }
+
+            }
+        });
+        btnDoiCauhoi2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChucNangChuaCapnhat();
+            }
+        });
 
         questionHelper = new QuestionHelper(this);
         questionHelper.getWritableDatabase();
@@ -307,23 +339,7 @@ public class RoundTwo extends AppCompatActivity {
 
 
     }
-    private void onClicktrogiup2(){
-        frame100diem2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (coinValue < 100){
-                    Toast.makeText(RoundTwo.this, "Bạn chưa đủ điểm để dùng quyền trợ giúp này", Toast.LENGTH_SHORT).show();
-                }else {
-                    list = questionHelper.getAllofTheQuestion();
 
-                    Collections.shuffle(list);
-                    coinValue-=100;
-
-                }
-
-            }
-        });
-    }
 
     private void updateQueAndOptions() {
 
@@ -483,4 +499,73 @@ public class RoundTwo extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    private void Dungtrogiup(){
+        final Dialog dialog = new Dialog(RoundTwo.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialoghelp);
+        dialog.show();
+        TextView tvtextStatus;
+        Button btnTiepTuc;
+
+        tvtextStatus = dialog.findViewById(R.id.tvtextStatus);
+        btnTiepTuc = dialog.findViewById(R.id.btnTiepTuc);
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+        tvtextStatus.setTypeface(typeface);
+        btnTiepTuc.setTypeface(typeface);
+        btnTiepTuc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+
+    }
+    private void ChucNangChuaCapnhat(){
+        final Dialog dialog = new Dialog(RoundTwo.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialoghelp);
+        dialog.show();
+        TextView tvtextStatus;
+        Button btnTiepTuc;
+
+        tvtextStatus = dialog.findViewById(R.id.tvtextStatus);
+        btnTiepTuc = dialog.findViewById(R.id.btnTiepTuc);
+        tvtextStatus.setText("Chức năng này đang được cập nhập !!");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+        tvtextStatus.setTypeface(typeface);
+        btnTiepTuc.setTypeface(typeface);
+        btnTiepTuc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+    }
+    private void ThoiGianchuadu(){
+        final Dialog dialog = new Dialog(RoundTwo.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialoghelp);
+        dialog.show();
+        TextView tvtextStatus;
+        Button btnTiepTuc;
+
+        tvtextStatus = dialog.findViewById(R.id.tvtextStatus);
+        btnTiepTuc = dialog.findViewById(R.id.btnTiepTuc);
+        tvtextStatus.setText("Thời gian chưa đủ để bạn sử dụng quyền trợ giúp");
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+        tvtextStatus.setTypeface(typeface);
+        btnTiepTuc.setTypeface(typeface);
+        btnTiepTuc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+    }
+
 }

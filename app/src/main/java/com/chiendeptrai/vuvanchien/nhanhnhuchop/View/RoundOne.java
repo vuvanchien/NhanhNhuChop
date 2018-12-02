@@ -96,8 +96,10 @@ public class RoundOne extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_round_one);
         khaibao();
-        onClicktrogiup1();
-        onClicktrogiup2();
+        Them30s();
+        Doicauhoi();
+        onclickDoiCauhoi();
+        onclickXemthem30s();
         imgHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -262,13 +264,16 @@ public class RoundOne extends AppCompatActivity {
 
     }
 
-private void onClicktrogiup1(){
+private void Them30s(){
     frame100diem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (coinValue < 100){
-                    Toast.makeText(RoundOne.this, "Bạn chưa đủ điểm để dùng quyền trợ giúp này", Toast.LENGTH_SHORT).show();
-                }else {
+                    Dungtrogiup();
+                }else if (timeValue < 60){
+                    ThoiGianchuadu();
+                }
+                else {
 //                    String diem = tvdiemso.getText().toString().trim();
 //                    String tg = tvThoiGian.getText().toString().trim();
 //
@@ -283,13 +288,16 @@ private void onClicktrogiup1(){
             }
         });
 }
-private void onClicktrogiup2(){
+private void Doicauhoi(){
         frame50diem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     if (coinValue < 100){
-                        Toast.makeText(RoundOne.this, "Bạn chưa đủ điểm để dùng quyền trợ giúp này", Toast.LENGTH_SHORT).show();
-                    }else {
+                        Dungtrogiup();
+                    }else if (timeValue < 60){
+                        ThoiGianchuadu();
+                    }
+                    else {
                         list = questionHelper.getAllofTheQuestion();
 
                         Collections.shuffle(list);
@@ -446,9 +454,6 @@ private void onClicktrogiup2(){
 
 // nó sẽ tăng số câu hỏi
                 qid++;
-//                if (qid == 2){
-//                    gameWon();
-//                }
 
 // lấy tùy chọn que và 4 và lưu trữ trong currentQuestion
                 currentQuestion = list.get(qid);
@@ -496,46 +501,47 @@ private void onClicktrogiup2(){
             anim.setDuration(10);
             anim.start();
             score2.setBackgroundResource(R.drawable.anim4);
-        }else if (qid == 2){
-            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
-            anim.setDuration(10);
-            anim.start();
-            score3.setBackgroundResource(R.drawable.anim4);
-        }else if (qid == 3){
-            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
-            anim.setDuration(10);
-            anim.start();
-            score4.setBackgroundResource(R.drawable.anim4);
-        }else if (qid == 4){
-            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
-            anim.setDuration(10);
-            anim.start();
-            score5.setBackgroundResource(R.drawable.anim4);
-        }else if (qid == 5){
-            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
-            anim.setDuration(10);
-            anim.start();
-            score6.setBackgroundResource(R.drawable.anim4);
-        }else if (qid == 6) {
-            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
-            anim.setDuration(10);
-            anim.start();
-            score7.setBackgroundResource(R.drawable.anim4);
-        }else if (qid == 7) {
-            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
-            anim.setDuration(10);
-            anim.start();
-            score8.setBackgroundResource(R.drawable.anim4);
-        }else if (qid == 8) {
-            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
-            anim.setDuration(10);
-            anim.start();
-            score9.setBackgroundResource(R.drawable.anim4);
-        }else if (qid == 9){
-            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
-            anim.setDuration(10);
-            anim.start();
-            score10.setBackgroundResource(R.drawable.anim4);
+//        }else if (qid == 2){
+//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
+//            anim.setDuration(10);
+//            anim.start();
+//            score3.setBackgroundResource(R.drawable.anim4);
+//        }else if (qid == 3){
+//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
+//            anim.setDuration(10);
+//            anim.start();
+//            score4.setBackgroundResource(R.drawable.anim4);
+//        }else if (qid == 4){
+//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
+//            anim.setDuration(10);
+//            anim.start();
+//            score5.setBackgroundResource(R.drawable.anim4);
+//        }else if (qid == 5){
+//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
+//            anim.setDuration(10);
+//            anim.start();
+//            score6.setBackgroundResource(R.drawable.anim4);
+//        }else if (qid == 6) {
+//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
+//            anim.setDuration(10);
+//            anim.start();
+//            score7.setBackgroundResource(R.drawable.anim4);
+//        }else if (qid == 7) {
+//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
+//            anim.setDuration(10);
+//            anim.start();
+//            score8.setBackgroundResource(R.drawable.anim4);
+//        }else if (qid == 8) {
+//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
+//            anim.setDuration(10);
+//            anim.start();
+//            score9.setBackgroundResource(R.drawable.anim4);
+    }
+else if (qid == 2){
+//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
+//            anim.setDuration(10);
+//            anim.start();
+//            score10.setBackgroundResource(R.drawable.anim4);
             gameWon();
         }
 
@@ -580,46 +586,46 @@ private void onClicktrogiup2(){
                 anim.setDuration(10);
                 anim.start();
                 score2.setBackgroundResource(R.drawable.anim4);
+//            } else if (qid == 2) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score3.setBackgroundResource(R.drawable.anim4);
+//            } else if (qid == 3) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score4.setBackgroundResource(R.drawable.anim4);
+//            } else if (qid == 4) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score5.setBackgroundResource(R.drawable.anim4);
+//            } else if (qid == 5) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
+//                anim.setDuration(10);
+//                anim.start();
+//                score6.setBackgroundResource(R.drawable.anim4);
+//            } else if (qid == 6) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score7.setBackgroundResource(R.drawable.anim4);
+//            } else if (qid == 7) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score8.setBackgroundResource(R.drawable.anim4);
+//            } else if (qid == 8) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score9.setBackgroundResource(R.drawable.anim4);
             } else if (qid == 2) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
-                anim.setDuration(10);
-                anim.start();
-                score3.setBackgroundResource(R.drawable.anim4);
-            } else if (qid == 3) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
-                anim.setDuration(10);
-                anim.start();
-                score4.setBackgroundResource(R.drawable.anim4);
-            } else if (qid == 4) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
-                anim.setDuration(10);
-                anim.start();
-                score5.setBackgroundResource(R.drawable.anim4);
-            } else if (qid == 5) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
-                anim.setDuration(10);
-                anim.start();
-                score6.setBackgroundResource(R.drawable.anim4);
-            } else if (qid == 6) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
-                anim.setDuration(10);
-                anim.start();
-                score7.setBackgroundResource(R.drawable.anim4);
-            } else if (qid == 7) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
-                anim.setDuration(10);
-                anim.start();
-                score8.setBackgroundResource(R.drawable.anim4);
-            } else if (qid == 8) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
-                anim.setDuration(10);
-                anim.start();
-                score9.setBackgroundResource(R.drawable.anim4);
-            } else if (qid == 9) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
-                anim.setDuration(10);
-                anim.start();
-                score10.setBackgroundResource(R.drawable.anim4);
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score10.setBackgroundResource(R.drawable.anim4);
                 gameWon();
             }
         }else {
@@ -642,46 +648,46 @@ private void onClicktrogiup2(){
                 anim.setDuration(10);
                 anim.start();
                 score2.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 2){
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
-                anim.setDuration(10);
-                anim.start();
-                score3.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 3){
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
-                anim.setDuration(10);
-                anim.start();
-                score4.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 4){
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
-                anim.setDuration(10);
-                anim.start();
-                score5.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 5){
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
-                anim.setDuration(10);
-                anim.start();
-                score6.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 6) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
-                anim.setDuration(10);
-                anim.start();
-                score7.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 7) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
-                anim.setDuration(10);
-                anim.start();
-                score8.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 8) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
-                anim.setDuration(10);
-                anim.start();
-                score9.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 2){
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score3.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 3){
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score4.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 4){
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score5.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 5){
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
+//                anim.setDuration(10);
+//                anim.start();
+//                score6.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 6) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score7.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 7) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score8.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 8) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score9.setBackgroundResource(R.drawable.anim4);
             }else if (qid == 9) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
-                anim.setDuration(10);
-                anim.start();
-                score10.setBackgroundResource(R.drawable.anim4);
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score10.setBackgroundResource(R.drawable.anim4);
                 gameWon();
             }
 
@@ -706,46 +712,46 @@ private void onClicktrogiup2(){
                 anim.setDuration(10);
                 anim.start();
                 score2.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 2){
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
-                anim.setDuration(10);
-                anim.start();
-                score3.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 3){
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
-                anim.setDuration(10);
-                anim.start();
-                score4.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 4){
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
-                anim.setDuration(10);
-                anim.start();
-                score5.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 5){
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
-                anim.setDuration(10);
-                anim.start();
-                score6.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 6) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
-                anim.setDuration(10);
-                anim.start();
-                score7.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 7) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
-                anim.setDuration(10);
-                anim.start();
-                score8.setBackgroundResource(R.drawable.anim4);
-            }else if (qid == 8) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
-                anim.setDuration(10);
-                anim.start();
-                score9.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 2){
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score3.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 3){
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score4.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 4){
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score5.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 5){
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
+//                anim.setDuration(10);
+//                anim.start();
+//                score6.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 6) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score7.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 7) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score8.setBackgroundResource(R.drawable.anim4);
+//            }else if (qid == 8) {
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score9.setBackgroundResource(R.drawable.anim4);
             }else if (qid == 9) {
-                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
-                anim.setDuration(10);
-                anim.start();
-                score10.setBackgroundResource(R.drawable.anim4);
+//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
+//                anim.setDuration(10);
+//                anim.start();
+//                score10.setBackgroundResource(R.drawable.anim4);
                 gameWon();
             }
 
@@ -754,6 +760,89 @@ private void onClicktrogiup2(){
             gameLostPlayAgain();
         }
     }
+private void Dungtrogiup(){
+        final Dialog dialog = new Dialog(RoundOne.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialoghelp);
+        dialog.show();
+     TextView tvtextStatus;
+     Button btnTiepTuc;
 
+    tvtextStatus = dialog.findViewById(R.id.tvtextStatus);
+    btnTiepTuc = dialog.findViewById(R.id.btnTiepTuc);
+
+    Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+    tvtextStatus.setTypeface(typeface);
+        btnTiepTuc.setTypeface(typeface);
+        btnTiepTuc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+
+}
+private void ChucNangChuaCapnhat(){
+    final Dialog dialog = new Dialog(RoundOne.this);
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    dialog.setContentView(R.layout.dialoghelp);
+    dialog.show();
+    TextView tvtextStatus;
+    Button btnTiepTuc;
+
+    tvtextStatus = dialog.findViewById(R.id.tvtextStatus);
+    btnTiepTuc = dialog.findViewById(R.id.btnTiepTuc);
+    tvtextStatus.setText("Chức năng này đang được cập nhập !!");
+    Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+    tvtextStatus.setTypeface(typeface);
+    btnTiepTuc.setTypeface(typeface);
+    btnTiepTuc.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            dialog.dismiss();
+        }
+    });
+
+}
+private void ThoiGianchuadu(){
+    final Dialog dialog = new Dialog(RoundOne.this);
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    dialog.setContentView(R.layout.dialoghelp);
+    dialog.show();
+    TextView tvtextStatus;
+    Button btnTiepTuc;
+
+    tvtextStatus = dialog.findViewById(R.id.tvtextStatus);
+    btnTiepTuc = dialog.findViewById(R.id.btnTiepTuc);
+    tvtextStatus.setText("Thời gian chưa đủ để bạn sử dụng quyền trợ giúp");
+
+    Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+    tvtextStatus.setTypeface(typeface);
+    btnTiepTuc.setTypeface(typeface);
+    btnTiepTuc.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            dialog.dismiss();
+        }
+    });
+
+}
+private void onclickDoiCauhoi(){
+        btnDoiCauhoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChucNangChuaCapnhat();
+            }
+        });
+}
+private void onclickXemthem30s(){
+        btnXemthem30s.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChucNangChuaCapnhat();
+            }
+        });
+}
 
 }

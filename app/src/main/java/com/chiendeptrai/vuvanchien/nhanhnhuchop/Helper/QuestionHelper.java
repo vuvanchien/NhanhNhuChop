@@ -48,9 +48,13 @@ public class QuestionHelper extends SQLiteOpenHelper {
     public void allQuestion(){
         ArrayList<Question> questionArrayList = new ArrayList<>();
         questionArrayList.add(new Question(
+                "Chất gì trong con người nhiều hơn chất ?", "A. H20", "B. Chất bột", "C. Chất xám", "D. Không có chất gì", "C. Chất xám"));
+        questionArrayList.add(new Question(
+                "Ở cuối con đường tình yêu là gì?", "A. Là chữ U", "B. Là thằng cu", "C. Là chữ ngu", "D. Không có đường gì cả", "A. Đường chữ U"));
+        questionArrayList.add(new Question(
                 "Ronaldo là người nước nào?", "A. Tây Ban Nha", "B. Bồ Đào Nha", "C. Pháp", "D. Anh", "B. Bồ Đào Nha"));
         questionArrayList.add(new Question(
-                "Tôi luôn mang giày đi ngủ. Tôi là ai?", "A. Con người", "B. Con ngựa  ", "C. Con mèo ", "D. Con chim ", "B. Con ngựa"));
+                "Tôi luôn mang giày đi ngủ. Tôi là ai?", "A. Con người", "B. Con ngựa", "C. Con mèo ", "D. Con chim ", "B. Con ngựa"));
         questionArrayList.add(new Question(
                 "Bạn làm việc gì đầu tiên mỗi buổi sáng?", "A. Đánh răng", "B. Mở mắt", "C. Thức dậy", "D. Cầm điện thoại", "B. Mở mắt"));
         questionArrayList.add(new Question(
@@ -66,7 +70,7 @@ public class QuestionHelper extends SQLiteOpenHelper {
         questionArrayList.add(new Question(
                 "Từ gì mà 100% người Việt Nam đều phát âm sai?", "A. Đúng", "B. Sai", "C. Khó quá bỏ qua", "D. Không biết ", "B. Sai"));
         questionArrayList.add(new Question(
-                "Miệng rộng lớn nhưng không nói một từ, là con gì?", "A. Con cá voi", "B. Con khỉ đột", "C. Con sông ", "D. Con chim ", "C. Con sông"));
+                "Miệng rộng lớn nhưng không nói một từ, là con gì?", "A. Con cá voi", "B. Con khỉ đột", "C. Con sông", "D. Con chim ", "C. Con sông"));
         questionArrayList.add(new Question(
                 "Có bao nhiêu chữ C trong câu sau: \"Cơm, canh, cá, tất cả em đều thích\"?", "A. 1", "B. 2", "C. 4", "D. 5", "A. 1"));
         questionArrayList.add(new Question(
@@ -144,7 +148,7 @@ public class QuestionHelper extends SQLiteOpenHelper {
         questionArrayList.add(new Question(
                 "Điều nầy có hợp lý hay không nếu 1 người đàn ông ở Sài Gòn cưới cô em gái của bà vợ quả phụ của ông ta", "A. Hợp lí", "B. Không hợp lý", "C. Bỏ qua", "D. Tất cả đều đúng", "A. Con người"));
         questionArrayList.add(new Question(
-                "Bạn tham dự vào 1 cuộc chạy thi, bạn vượt người thứ 2, vậy vị trí của bạn là thứ mấy?", "A. 1", "B. 3", " C.2 ", "D. 4", "B. 3"));
+                "Bạn tham dự vào 1 cuộc chạy thi, bạn vượt người thứ 2, vậy vị trí của bạn là thứ mấy?", "A. 1", "B. 3", "C. 2 ", "D. 4", "C. 2 "));
         questionArrayList.add(new Question(
                 "Bạn có 1000 cộng thêm 40. Bây giờ bạn cộng thêm 1000 khác. Và giờ thì cộng thêm 30...Cộng thêm 1000 nữa. Cộng thêm 20. Cộng thêm 1000 khác. Cộng thêm 10.Tổng là bao nhiêu vậy? ", "A. 5000 ", "B. 5100", "C. 4100", "D. 3900", "C. 4100"));
         questionArrayList.add(new Question(

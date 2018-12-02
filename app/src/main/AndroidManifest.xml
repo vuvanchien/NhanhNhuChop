@@ -18,6 +18,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".View.Startscreen"
@@ -59,7 +60,16 @@
             android:name=".View.PlayAgain"
             android:screenOrientation="landscape"
             android:theme="@style/AppThemeNo" />
-        <activity android:name=".View.TimeUp"
+        <activity
+            android:name=".View.TimeUp"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo" />
+        <activity
+            android:name=".View.LoandGame2"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeNo" />
+        <activity android:name=".View.AnimationBlink"
+            android:screenOrientation="landscape"
             android:theme="@style/AppThemeNo">
 
         </activity>

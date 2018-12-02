@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">NhanhNhuChop</string>
-    <string name="huongdanchoivonh1">Trả lời đúng liên tiếp 10 câu trong vòng 120 giây bạn sẽ vượt qua vòng 1. Để xem bạn nhanh tay lẹ mắt và thông minh đến đâu.</string>
+    <string name="huongdanchoivonh1">Trả lời đúng liên tiếp 10 câu trong vòng 120 giây bạn sẽ vượt qua vòng 1. Để xem bạn nhanh tay lẹ mắt và thông minh đến đâu. !!!</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="huongdanchoivonh2">Vòng 2 có 30 giây cho mỗi câu hỏi trả lời đúng bạn xẽ có 10 điểm . Trả lời 3 câu trò chơi sẽ kết thúc.
+    <string name="huongdanchoivonh2">Vòng 2 có 30 giây cho mỗi câu hỏi trả lời đúng bạn xẽ có 10 điểm . Trả lời 3 câu trò chơi sẽ kết thúc.!!!
     Chúc bạn chơi vui vẻ.</string>
-    <string name="textdungcuocchoihome">Bạn có muốn dừng cuộc chơi và trở về menu không ??</string>
+    <string name="textdungcuocchoihome">Bạn chưa đủ điểm để sử dụng quyền trợ giúp !!!</string>
 </resources>

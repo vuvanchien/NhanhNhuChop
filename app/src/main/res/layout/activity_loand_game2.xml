@@ -5,21 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Loadgame">
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/backgroud"
-    android:scaleType="centerCrop">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/backgroud"
+        android:scaleType="centerCrop">
 
-</ImageView>
+    </ImageView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="62dp"
-        android:text="Vòng 1"
-        android:id="@+id/tvvong"
+        android:text="Vòng 2"
+        android:id="@+id/tvvong2"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorWhite"
         android:textSize="24sp"

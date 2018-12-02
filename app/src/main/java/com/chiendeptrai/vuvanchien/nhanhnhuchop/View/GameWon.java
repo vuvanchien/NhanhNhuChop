@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.chiendeptrai.vuvanchien.nhanhnhuchop.R;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameWon extends AppCompatActivity {
     private Button btntieptucchoicm;
@@ -23,13 +27,21 @@ public class GameWon extends AppCompatActivity {
         btntieptucchoicm = findViewById(R.id.btntieptucchoiCm);
         textView = findViewById(R.id.tvchucmung);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/UVNBanhMi.TTF");
+
+
         btntieptucchoicm.setTypeface(typeface);
         textView.setTypeface(typeface);
         btntieptucchoicm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GameWon.this, Overcome.class));
-                textView.setText("Vòng 2");
+                Timer timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(GameWon.this, Overcome.class));
+                    }
+                },1000);
+
             }
         });
 

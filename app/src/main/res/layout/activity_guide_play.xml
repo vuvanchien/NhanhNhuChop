@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:src="@drawable/home"
-    android:id="@+id/scrollView"
+    android:id="@+id/imgBacgroud"
     android:scaleType="centerCrop"
     />
 
@@ -47,7 +47,6 @@
         android:background="@drawable/boderbuttom"
         android:text="Chơi ngay"
         android:id="@+id/btnchoingay1"
-        android:gravity="center"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
         android:textSize="20sp" />

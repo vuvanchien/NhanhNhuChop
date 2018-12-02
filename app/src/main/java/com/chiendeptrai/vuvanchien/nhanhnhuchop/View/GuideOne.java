@@ -26,7 +26,7 @@ private Button btnChoingay1;
         btnChoingay1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        startActivity(new Intent(GuideOne.this, RoundOne.class));
+                        startActivity(new Intent(GuideOne.this, AnimationBlink.class));
 
             }
         });

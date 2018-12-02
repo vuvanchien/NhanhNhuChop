@@ -28,7 +28,7 @@ Button btnBatDau;
         btnBatDau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Startscreen.this, GuideOne.class));
+                startActivity(new Intent(Startscreen.this, Loadgame.class));
             }
         });
         btnthoat.setOnClickListener(new View.OnClickListener() {

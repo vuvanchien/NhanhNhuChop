@@ -25,8 +25,8 @@ public class Loadgame extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(Loadgame.this, RoundOne.class ));
+                startActivity(new Intent(Loadgame.this,  GuideOne.class ));
             }
-        }, 200);
+        }, 1000);
     }
 }
