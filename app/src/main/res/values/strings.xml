@@ -5,7 +5,7 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="huongdanchoivonh2">Vòng 2 có 30 giây cho mỗi câu hỏi trả lời đúng bạn xẽ có 10 điểm . Trả lời 3 câu trò chơi sẽ kết thúc.!!!
+    <string name="huongdanchoivonh2">Vòng 2 có 30 giây cho mỗi câu hỏi trả lời đúng bạn xẽ có 10 điểm . Chúc bạn chơi may mắn.!!!
     Chúc bạn chơi vui vẻ.</string>
     <string name="textdungcuocchoihome">Bạn chưa đủ điểm để sử dụng quyền trợ giúp !!!</string>
 </resources>
