@@ -501,47 +501,47 @@ private void Doicauhoi(){
             anim.setDuration(10);
             anim.start();
             score2.setBackgroundResource(R.drawable.anim4);
-//        }else if (qid == 2){
-//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
-//            anim.setDuration(10);
-//            anim.start();
-//            score3.setBackgroundResource(R.drawable.anim4);
-//        }else if (qid == 3){
-//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
-//            anim.setDuration(10);
-//            anim.start();
-//            score4.setBackgroundResource(R.drawable.anim4);
-//        }else if (qid == 4){
-//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
-//            anim.setDuration(10);
-//            anim.start();
-//            score5.setBackgroundResource(R.drawable.anim4);
-//        }else if (qid == 5){
-//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
-//            anim.setDuration(10);
-//            anim.start();
-//            score6.setBackgroundResource(R.drawable.anim4);
-//        }else if (qid == 6) {
-//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
-//            anim.setDuration(10);
-//            anim.start();
-//            score7.setBackgroundResource(R.drawable.anim4);
-//        }else if (qid == 7) {
-//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
-//            anim.setDuration(10);
-//            anim.start();
-//            score8.setBackgroundResource(R.drawable.anim4);
-//        }else if (qid == 8) {
-//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
-//            anim.setDuration(10);
-//            anim.start();
-//            score9.setBackgroundResource(R.drawable.anim4);
+        }else if (qid == 2){
+            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
+            anim.setDuration(10);
+            anim.start();
+            score3.setBackgroundResource(R.drawable.anim4);
+        }else if (qid == 3){
+            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
+            anim.setDuration(10);
+            anim.start();
+            score4.setBackgroundResource(R.drawable.anim4);
+        }else if (qid == 4){
+            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
+            anim.setDuration(10);
+            anim.start();
+            score5.setBackgroundResource(R.drawable.anim4);
+        }else if (qid == 5){
+            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
+            anim.setDuration(10);
+            anim.start();
+            score6.setBackgroundResource(R.drawable.anim4);
+        }else if (qid == 6) {
+            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
+            anim.setDuration(10);
+            anim.start();
+            score7.setBackgroundResource(R.drawable.anim4);
+        }else if (qid == 7) {
+            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
+            anim.setDuration(10);
+            anim.start();
+            score8.setBackgroundResource(R.drawable.anim4);
+        }else if (qid == 8) {
+            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
+            anim.setDuration(10);
+            anim.start();
+            score9.setBackgroundResource(R.drawable.anim4);
     }
-else if (qid == 2){
-//            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
-//            anim.setDuration(10);
-//            anim.start();
-//            score10.setBackgroundResource(R.drawable.anim4);
+else if (qid == 9){
+            ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
+            anim.setDuration(10);
+            anim.start();
+            score10.setBackgroundResource(R.drawable.anim4);
             gameWon();
         }
 
@@ -586,46 +586,46 @@ else if (qid == 2){
                 anim.setDuration(10);
                 anim.start();
                 score2.setBackgroundResource(R.drawable.anim4);
-//            } else if (qid == 2) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score3.setBackgroundResource(R.drawable.anim4);
-//            } else if (qid == 3) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score4.setBackgroundResource(R.drawable.anim4);
-//            } else if (qid == 4) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score5.setBackgroundResource(R.drawable.anim4);
-//            } else if (qid == 5) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
-//                anim.setDuration(10);
-//                anim.start();
-//                score6.setBackgroundResource(R.drawable.anim4);
-//            } else if (qid == 6) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score7.setBackgroundResource(R.drawable.anim4);
-//            } else if (qid == 7) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score8.setBackgroundResource(R.drawable.anim4);
-//            } else if (qid == 8) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score9.setBackgroundResource(R.drawable.anim4);
             } else if (qid == 2) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score10.setBackgroundResource(R.drawable.anim4);
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
+                anim.setDuration(10);
+                anim.start();
+                score3.setBackgroundResource(R.drawable.anim4);
+            } else if (qid == 3) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
+                anim.setDuration(10);
+                anim.start();
+                score4.setBackgroundResource(R.drawable.anim4);
+            } else if (qid == 4) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
+                anim.setDuration(10);
+                anim.start();
+                score5.setBackgroundResource(R.drawable.anim4);
+            } else if (qid == 5) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
+                anim.setDuration(10);
+                anim.start();
+                score6.setBackgroundResource(R.drawable.anim4);
+            } else if (qid == 6) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
+                anim.setDuration(10);
+                anim.start();
+                score7.setBackgroundResource(R.drawable.anim4);
+            } else if (qid == 7) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
+                anim.setDuration(10);
+                anim.start();
+                score8.setBackgroundResource(R.drawable.anim4);
+            } else if (qid == 8) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
+                anim.setDuration(10);
+                anim.start();
+                score9.setBackgroundResource(R.drawable.anim4);
+            } else if (qid == 9) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
+                anim.setDuration(10);
+                anim.start();
+                score10.setBackgroundResource(R.drawable.anim4);
                 gameWon();
             }
         }else {
@@ -648,46 +648,46 @@ else if (qid == 2){
                 anim.setDuration(10);
                 anim.start();
                 score2.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 2){
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score3.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 3){
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score4.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 4){
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score5.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 5){
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
-//                anim.setDuration(10);
-//                anim.start();
-//                score6.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 6) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score7.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 7) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score8.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 8) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score9.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 2){
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
+                anim.setDuration(10);
+                anim.start();
+                score3.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 3){
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
+                anim.setDuration(10);
+                anim.start();
+                score4.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 4){
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
+                anim.setDuration(10);
+                anim.start();
+                score5.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 5){
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
+                anim.setDuration(10);
+                anim.start();
+                score6.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 6) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
+                anim.setDuration(10);
+                anim.start();
+                score7.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 7) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
+                anim.setDuration(10);
+                anim.start();
+                score8.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 8) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
+                anim.setDuration(10);
+                anim.start();
+                score9.setBackgroundResource(R.drawable.anim4);
             }else if (qid == 9) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score10.setBackgroundResource(R.drawable.anim4);
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
+                anim.setDuration(10);
+                anim.start();
+                score10.setBackgroundResource(R.drawable.anim4);
                 gameWon();
             }
 
@@ -712,46 +712,46 @@ else if (qid == 2){
                 anim.setDuration(10);
                 anim.start();
                 score2.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 2){
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score3.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 3){
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score4.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 4){
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score5.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 5){
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
-//                anim.setDuration(10);
-//                anim.start();
-//                score6.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 6) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score7.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 7) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score8.setBackgroundResource(R.drawable.anim4);
-//            }else if (qid == 8) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score9.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 2){
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 510f);
+                anim.setDuration(10);
+                anim.start();
+                score3.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 3){
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 435f);
+                anim.setDuration(10);
+                anim.start();
+                score4.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 4){
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 360f);
+                anim.setDuration(10);
+                anim.start();
+                score5.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 5){
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 285);
+                anim.setDuration(10);
+                anim.start();
+                score6.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 6) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 210f);
+                anim.setDuration(10);
+                anim.start();
+                score7.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 7) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 135f);
+                anim.setDuration(10);
+                anim.start();
+                score8.setBackgroundResource(R.drawable.anim4);
+            }else if (qid == 8) {
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 60f);
+                anim.setDuration(10);
+                anim.start();
+                score9.setBackgroundResource(R.drawable.anim4);
             }else if (qid == 9) {
-//                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
-//                anim.setDuration(10);
-//                anim.start();
-//                score10.setBackgroundResource(R.drawable.anim4);
+                ObjectAnimator anim = ObjectAnimator.ofFloat(imgAnimation, "translationY", 0f, 0f);
+                anim.setDuration(10);
+                anim.start();
+                score10.setBackgroundResource(R.drawable.anim4);
                 gameWon();
             }
 
